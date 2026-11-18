@@ -18,11 +18,29 @@
 
     <main>
         <div class="grid-container">
+            <div class="curatorial-statement" style="font-family: 'Unkempt', cursive; font-weight: 400;">
+                <h1 style="font-family: 'Unkempt', cursive; font-weight: 700; text-align: center;">Curatorial Statement</h1>
+                <p style="font-family: 'Unkempt', cursive; font-weight: 400; text-align: left;">The Catlas Meowseum aims to showcase art from around the world that depicts cats.</p>
+                <p style="font-family: 'Unkempt', cursive; font-weight: 400; text-align: left;">The Catlas Meowseum</p>
+                 </div>
             <div class="grid-rows">
-                <img src="images/europe.png">
-                <img src="images/asia.png">
+                <div class="map-panel">
+                    <img src="images/europe.png">
+                    <div class="circle-buttons">
+                        <button class="circle-button" type="button" data-artwork-index="1" aria-label="Toggle artwork 2 visibility" aria-pressed="false" disabled>+</button>
+                        <button class="circle-button" type="button" data-artwork-index="2" aria-label="Toggle artwork 3 visibility" aria-pressed="false" disabled>+</button>
+                        <button class="circle-button" type="button" data-artwork-index="3" aria-label="Toggle artwork 4 visibility" aria-pressed="false" disabled>+</button>
+                        <button class="circle-button" type="button" data-artwork-index="4" aria-label="Toggle artwork 5 visibility" aria-pressed="false" disabled>+</button>
+                    </div>
+                </div>
+                <div class="map-panel">
+                    <img src="images/japan.png">
+                    <div class="circle-buttons">
+                        <button class="circle-button" type="button" data-artwork-index="0" aria-label="Toggle artwork 1 visibility" aria-pressed="false" disabled>+</button>
+                    </div>
+                </div>
             </div>
-            <img src="images/europe.png">
+            <div class="art-gallery" id="art" aria-label="Artwork cards"></div>
         </div>
     </main>
     <script src="js/scripts.js"></script>

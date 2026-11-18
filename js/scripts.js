@@ -10,9 +10,11 @@ async function getLinkedArt(url) {
     return data;
 }
 
-function makeImage(imageUrl, title, artist) {
+function makeImage(imageUrl, title, artist, index) {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
+    newCard.dataset.artworkIndex = index;
+    newCard.hidden = true;
 
     const newImage = document.createElement("img");
     const newTitle = document.createElement("h2");
@@ -23,13 +25,29 @@ function makeImage(imageUrl, title, artist) {
     newImage.src = imageUrl;
     newImage.alt = title;
 
-    document.querySelector("art").appendChild(newCard);
+    const gallery = document.querySelector("#art");
+    const button = document.querySelector(`.circle-button[data-artwork-index="${index}"]`);
+    if (!gallery || !button) {
+        throw new Error(`Missing artwork gallery or button for artwork ${index + 1}.`);
+    }
+
+    gallery.appendChild(newCard);
     newCard.appendChild(newImage);
     newCard.appendChild(newTitle);
     newCard.appendChild(newArtist);
+
+    button.addEventListener("click", () => {
+        gallery.querySelectorAll(".card").forEach((card) => {
+            card.hidden = card !== newCard;
+        });
+        document.querySelectorAll(".circle-button").forEach((artworkButton) => {
+            artworkButton.setAttribute("aria-pressed", String(artworkButton === button));
+        });
+    });
+    button.disabled = false;
 }
 
-async function processRijksData(id) {
+async function processRijksData(id, index) {
     const rijksUrl = urlPrefix + id + urlSuffix;
     console.log("Rijks URL:", rijksUrl);
 
@@ -43,13 +61,13 @@ async function processRijksData(id) {
     const artist = data.produced_by.part[0].referred_to_by[1].content;
 
     // create card with image, title, and artist
-    makeImage(imageUrl, title, artist);
+    makeImage(imageUrl, title, artist, index);
 }
 
 async function processIds() {
-    for (const id of artIds) {
-        await processRijksData(id);
-}
+    for (const [index, id] of artIds.entries()) {
+        await processRijksData(id, index);
+    }
 }
 
 processIds();
