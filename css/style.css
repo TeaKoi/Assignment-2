@@ -64,29 +64,37 @@ main {
   pointer-events: auto;
 }
 
-.circle-button:nth-child(1) {
-  --button-x: 43%;
-  --button-top: 73%;
+.circle-button:hover {
+  background-color: darkgray;
 }
 
-.circle-button:nth-child(2) {
-  --button-x: 41%;
-  --button-top: 19%;
+.circle-button[aria-pressed="true"] {
+  background-color: red;
 }
 
-.circle-button:nth-child(3) {
-  --button-x: 39%;
-  --button-top: 28%;
+.japan-map .circle-button[data-artwork-index="0"] {
+  --button-x: 58%;
+  --button-top: 46%;
 }
 
-.circle-button:nth-child(4) {
-  --button-x: 45%;
+.europe-map .circle-button[data-artwork-index="1"] {
+  --button-x: 51%;
   --button-top: 37%;
 }
 
-.circle-button:nth-child(5) {
-  --button-x: 43%;
-  --button-top: 23%;
+.europe-map .circle-button[data-artwork-index="2"] {
+  --button-x: 47%;
+  --button-top: 55%;
+}
+
+.europe-map .circle-button[data-artwork-index="3"] {
+  --button-x: 62%;
+  --button-top: 75%;
+}
+
+.europe-map .circle-button[data-artwork-index="4"] {
+  --button-x: 57%;
+  --button-top: 43%;
 }
 
 .grid-container {
