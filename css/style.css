@@ -1,0 +1,61 @@
+.unkempt-regular {
+  font-family: "Unkempt", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.unkempt-bold {
+  font-family: "Unkempt", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.grid-container div {
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.grid-rows {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-height: 90vh;
+}
+
+.grid-rows img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.grid-rows div {
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.button {
+  position: absolute;
+  border-radius: 50%;
+  border: none;
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: #00b7ff;
+  transition: background-color 0.3s transform 0.1s;
+}
